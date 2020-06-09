@@ -1,0 +1,100 @@
+<!DOCTYPE html> 
+<html lang=”pl”> 
+<body>
+    
+    <h2> {{ name[0] }} </h2>
+    
+    <table border="1" cellpadding="0" cellspacing="0">
+        {% for row in dane %}<tr>
+        {% for elem in row %}
+            <td>{{ elem }}</td>
+        {% endfor %}</tr>
+        {% endfor %}   
+        </table><br>
+        
+        <p>Dodaj rekord do tabeli '{{name[0]}}'</p>
+
+        {% for elem in dane[0] %}
+        <form method="POST">
+            {{elem}} <input type="text" name={{elem}}><br>
+        {% endfor %}
+        <input type="submit" name="dodaj" value="Dodaj">
+        </form>
+
+        <p>Usuń rekord z tabeli</p>
+        <form method="POST">
+            ID rekordu <input type="number" name="idDel">
+            <input type="submit" name="usun" value="Usuń">
+        </form>
+
+        <p>Zaktualizuj rekord</p>
+        <form method="POST">
+            ID rekordu <input type="number" name="idAlter">
+            Nazwa kolumny <input type="text" name="colAlter">
+            Nowa wartość <input type="text" name="valAlter">
+            <input type="submit" name="zmien" value="Zmień">
+        </form>
+        
+        <!--{% for elem in dane[0] %}
+        <form method="POST">
+            {{elem}} <input type="text" name="alt+{{elem}}"><br>
+        {% endfor %}
+        <input type="submit" name="zmien" value="Zmień">
+        </form>-->
+
+
+
+    <br><br>
+    {% if name[0] == "Adres" %} <b>Adres </b>
+    {% else %} <a href="{{ url_for('tabela_adres') }}">Adres  |   </a> 
+    {% endif %}
+    
+    {% if name[0] == "Znizka" %} <b>Znizka </b>
+    {% else %} <a href="{{ url_for('tabela_znizka') }}">Znizka  |   </a> 
+    {% endif %}
+
+    {% if name[0] == "Ocena" %} <b>Ocena </b>
+    {% else %} <a href="{{ url_for('tabela_ocena') }}">Ocena  |   </a> 
+    {% endif %}
+
+    {% if name[0] == "Klient" %} <b>Klient </b>
+    {% else %} <a href="{{ url_for('tabela_klient') }}">Klient  |   </a><br> 
+    {% endif %}
+
+    {% if name[0] == "Kierowca" %} <b>Kierowca </b>
+    {% else %} <a href="{{ url_for('tabela_kierowca') }}">Kierowca  |   </a> 
+    {% endif %}
+
+    {% if name[0] == "Rodzaj_samochodu" %} <b>Rodzaj samochodu </b>
+    {% else %} <a href="{{ url_for('tabela_rodzsam') }}">Rodzaj samochodu  |   </a> 
+    {% endif %}
+    
+    {% if name[0] == "Egzemplarz" %} <b>Egzemplarz </b>
+    {% else %} <a href="{{ url_for('tabela_egzemplarz') }}">Egzemplarz  |   </a>  
+    {% endif %}
+    
+    {% if name[0] == "Oplata" %} <b>Opłata </b>
+    {% else %} <a href="{{ url_for('tabela_oplata') }}">Opłata  |   </a><br> 
+    {% endif %}
+
+    {% if name[0] == "Taryfa" %} <b>Taryfa </b>
+    {% else %} <a href="{{ url_for('tabela_taryfa') }}">Taryfa  |</a> 
+    {% endif %}
+
+    {% if name[0] == "Kurs" %} <b>Kurs </b>
+    {% else %} <a href="{{ url_for('tabela_kurs') }}">Kurs  |  </a>
+    {% endif %}
+
+    {% if name[0] == "Historia" %} <b>Historia </b>
+    {% else %} <a href="{{ url_for('tabela_historia') }}">Historia  |</a> 
+    {% endif %}
+    
+
+    <br><br><a href="{{ url_for('index') }}">Strona główna  </a>
+
+
+
+    
+    
+</body> 
+</html>

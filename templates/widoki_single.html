@@ -1,0 +1,31 @@
+<!DOCTYPE html> 
+<html lang=”pl”> 
+<body>
+    
+    <h2> {{ name }} </h2>
+    
+    <table border="1" cellpadding="0" cellspacing="0">
+        {% for row in dane %}<tr>
+        {% for elem in row %}
+            <td>{{ elem }}</td>
+        {% endfor %}</tr>
+        {% endfor %}   
+        </table><br> 
+
+    
+    {% if name == "mniejNiz20" %} <b>Widok 'mniejNiz20'  |  </b>
+    {% else %} <a href="{{ url_for('widok_mniejniz20') }}">Widok 'mniejNiz20'  |  </a> 
+    {% endif %}
+    
+    {% if name == "dostepni" %} <b>Widok 'dostepni'  |  </b>
+    {% else %} <a href="{{ url_for('widok_dostepni') }}">Widok 'dostepni'  |  </a> 
+    {% endif %}
+
+    {% if name == "niebieskieSam" %} <b>Widok 'niebieskieSam'  |  </b>
+    {% else %} <a href="{{ url_for('widok_niebieskiesam') }}">Widok 'niebieskieSam'  |  </a> 
+    {% endif %}
+    
+    <br><br><a href="{{ url_for('index') }}">Strona główna  </a>
+
+</body> 
+</html>

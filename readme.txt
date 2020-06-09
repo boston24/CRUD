@@ -1,0 +1,1 @@
+Aby zobaczyć w przeglądarce zmiany wprowadzone w bazie danych, należy zrestartować serwer lokalny.
